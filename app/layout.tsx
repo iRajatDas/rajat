@@ -8,13 +8,15 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_ROOT_URL),
   title: {
-    default: "Rajat Das Portfolio",
-    template: "%s | Rajat Das Portfolio",
+    default: "Rajat Das",
+    template: "%s | Rajat Das",
   },
-  description: "A portfolio website for Rajat Das",
+  description:
+    "Expertise in React and Next.js. Rajat Das: Your dedicated Frontend UI/UX developer, ensuring intuitive interfaces and exceptional user satisfaction.",
   openGraph: {
     title: "Rajat Das Portfolio",
-    description: "A portfolio website for Rajat Das",
+    description:
+      "Expertise in React and Next.js. Rajat Das: Your dedicated Frontend UI/UX developer, ensuring intuitive interfaces and exceptional user satisfaction.",
     url: env.NEXT_PUBLIC_ROOT_URL,
     siteName: "Rajat Das",
     locale: "en_US",

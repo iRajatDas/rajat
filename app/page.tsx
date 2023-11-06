@@ -6,16 +6,12 @@ import Badge from "@/components/badge";
 import BlogLink from "@/components/blog-link";
 import ArrowIcon from "@/components/arrow-icon";
 import LibraryCloud from "@/components/library-cloud";
+import Welcome from "@/components/welcome";
 
 export default function Page() {
   return (
     <section>
-      <h1
-        className="font-semibold text-2xl mb-8 tracking-tighter w-fit"
-        title="Rajot Kumar Das"
-      >
-        hey, I&apos;m Rajat 👋
-      </h1>
+      <Welcome />
       <p className="prose prose-neutral dark:prose-invert">
         {`I'm a frontend developer and a tech enthusiast. I currently
         work as a Software Engineer Experience at `}
@@ -25,7 +21,7 @@ export default function Page() {
             Macmerise
           </Badge>
         </span>
-        {`, where I create and handle the frontend UI/UX for seamless user experiences with `}
+        {`, where I play a pivotal role in shaping the frontend UI/UX for our projects. I focus on creating seamless and user-friendly interfaces with `}
         <Badge href="https://nextjs.org">
           <Image
             alt="Next.js logomark"
@@ -51,13 +47,10 @@ export default function Page() {
       </p>
       <div className="prose prose-neutral dark:prose-invert">
         <p>
-          I have a passion for building products that people love. I try to keep
-          my skils sharp by learning new things and keeping up with the latest
-          trends in the industry.
-        </p>
-        <p>
-          I&apos;m currently working on a few side projects, including a few
-          open source projects.
+          My expertise lies in developing responsive web applications and
+          optimizing them for better user experience. I am dedicated to
+          delivering client-centric solutions tailored to meet specific project
+          requirements.
         </p>
       </div>
       <div className="my-8 flex flex-col space-y-4 w-full">
@@ -75,14 +68,25 @@ export default function Page() {
       </div>
       <div className="prose prose-neutral dark:prose-invert">
         {/* Tech Stack */}
+        <p>
+          I have a passion for building products that people love. I try to keep
+          my skils sharp by learning new things and keeping up with the latest
+          trends in the industry.
+        </p>
         <p>Here are a few technologies I&apos;ve been working with recently:</p>
       </div>
 
       <LibraryCloud />
       <div className="prose prose-neutral dark:prose-invert">
         <p>
-          I&apos;m always looking for new opportunities to learn and grow. If
-          you&apos;re looking for a developer, feel free to{" "}
+          I&apos;m always looking for new opportunities to learn and grow. IIf
+          you are seeking a dedicated frontend UI/UX developer with expertise in
+          React and Next.js, I am here to bring your digital projects to life.
+          Let&apos;s collaborate and create innovative, visually stunning, and
+          user-friendly web experiences together.
+        </p>
+        <p>
+          Please feel free to{" "}
           <Link className="underline" href="mailto:rajatdas5000@gmail.com">
             Drop me an e-mail
           </Link>
