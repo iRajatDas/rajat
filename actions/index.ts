@@ -4,6 +4,8 @@ import { queryBuilder, view } from "@/lib/db/queryBuilder";
 import { eq } from "drizzle-orm";
 
 export async function incrementViews(slug: string) {
+  console.log("incrementing views");
+
   const toIncrement = await queryBuilder.query.view.findFirst({
     where(fields, operators) {
       return operators.eq(fields.slug, slug);
@@ -31,4 +33,24 @@ export async function incrementViews(slug: string) {
   }
 
   return;
+}
+
+export async function getViewCount(slug: string): Promise<
+  {
+    slug: string;
+    count: number;
+  }[]
+> {
+  const views = await queryBuilder.query.view
+    .findMany({
+      where(fields, operators) {
+        return operators.eq(fields.slug, slug);
+      },
+    })
+    .execute();
+
+  return views.map((view) => ({
+    slug: view.slug,
+    count: view.views,
+  }));
 }

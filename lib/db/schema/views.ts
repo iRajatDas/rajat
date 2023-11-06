@@ -1,4 +1,3 @@
-import { type InferInsertModel, type InferSelectModel } from "drizzle-orm";
 import {
   integer,
   pgTable,
@@ -24,5 +23,5 @@ export const view = pgTable(
   }
 );
 
-type SelectUser = typeof view.$inferSelect;
-type InsertUser = typeof view.$inferInsert;
+export type SelectUser = typeof view.$inferSelect;
+export type InsertUser = typeof view.$inferInsert;
