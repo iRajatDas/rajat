@@ -4,8 +4,6 @@ import { queryBuilder, view } from "@/lib/db/queryBuilder";
 import { eq } from "drizzle-orm";
 
 export async function incrementViews(slug: string) {
-  console.log("incrementing views");
-
   const toIncrement = await queryBuilder.query.view.findFirst({
     where(fields, operators) {
       return operators.eq(fields.slug, slug);

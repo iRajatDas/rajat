@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 import type { Metadata } from "next";
-import { fontSans } from "@/lib/fonts";
+import { fontMono, fontSans } from "@/lib/fonts";
 import env from "@/lib/env";
 import Navbar from "@/components/nav-bar";
 import { cn } from "@/lib/utils";
@@ -48,7 +48,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn(fontSans.variable, "dark")}
+      className={cn(fontSans.variable, fontMono.variable, "dark")}
       data-mode="dark"
     >
       {/* <body className={"min-h-screen bg-background font-sans antialiased"}> */}

@@ -13,7 +13,7 @@ export default function BlogPage() {
   return (
     <section>
       <h1 className="font-semibold text-2xl mb-8 tracking-tighter">
-        Snippets
+        Blog
       </h1>
       {allBlogs
         .sort((a, b) => {
@@ -26,7 +26,7 @@ export default function BlogPage() {
           <Link
             key={post.slug}
             className="flex flex-col space-y-1 mb-4"
-            href={`/blog/${post.slug}`}
+            href={`${post.slug}`}
           >
             <div className="w-full flex flex-col">
               <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">

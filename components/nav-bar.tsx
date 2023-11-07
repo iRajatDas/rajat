@@ -1,9 +1,9 @@
 "use client";
-import { AnimatePresence, motion, useInView } from "framer-motion";
+// import { AnimatePresence, motion, useInView } from "framer-motion";
 import { LayoutGroup } from "framer-motion";
 import NavItem from "./nav-item";
 import React, { Suspense } from "react";
-import { cn } from "@/lib/utils";
+// import { cn } from "@/lib/utils";
 
 const navItems = {
   "/": {
@@ -12,14 +12,17 @@ const navItems = {
   "/blog": {
     name: "blog",
   },
+  "/snippet": {
+    name: "snippet",
+  },
 };
 
 export default function Navbar() {
-  const navRef = React.useRef<HTMLElement>(null);
+  // const navRef = React.useRef<HTMLElement>(null);
 
-  const inView = useInView(navRef, {
-    // margin: "30px",
-  });
+  // const inView = useInView(navRef, {
+  // margin: "30px",
+  // });
 
   return (
     <>
@@ -64,7 +67,7 @@ export default function Navbar() {
         <div className="lg:sticky lg:top-20">
           <LayoutGroup>
             <nav
-              ref={navRef}
+              // ref={navRef}
               className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
               id="nav"
             >

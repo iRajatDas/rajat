@@ -1,13 +1,13 @@
-import * as React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { useMDXComponent } from 'next-contentlayer/hooks';
-// import { TweetComponent } from './tweet';
+import * as React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { useMDXComponent } from "next-contentlayer/hooks";
+import { TweetComponent } from "./tweet";
 
 const CustomLink = (props) => {
   const href = props.href;
 
-  if (href.startsWith('/')) {
+  if (href.startsWith("/")) {
     return (
       <Link href={href} {...props}>
         {props.children}
@@ -15,7 +15,7 @@ const CustomLink = (props) => {
     );
   }
 
-  if (href.startsWith('#')) {
+  if (href.startsWith("#")) {
     return <a {...props} />;
   }
 
@@ -95,14 +95,14 @@ const components = {
   Callout,
   ProsCard,
   ConsCard,
-  // StaticTweet: [TweetComponent],
+  StaticTweet: TweetComponent,
 };
 
 export function Mdx({ code }: { code: string }) {
   const Component = useMDXComponent(code);
 
   return (
-    <article className="prose prose-quoteless prose-neutral dark:prose-invert">
+    <article className="prose prose-quoteless prose-neutral dark:prose-invert prose-code:font-mono">
       <Component components={components} />
     </article>
   );

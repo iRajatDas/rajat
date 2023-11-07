@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Mdx } from "@/components/mdx";
-import { allBlogs } from "contentlayer/generated";
+import { allSnippets } from "contentlayer/generated";
 import Balancer from "react-wrap-balancer";
 import { Suspense } from "react";
 import { formatDate } from "@/lib/utils";
@@ -16,7 +16,7 @@ export async function generateMetadata({
     slug: string;
   };
 }): Promise<Metadata | undefined> {
-  const post = allBlogs.find((post) => post.slug === params.slug);
+  const post = allSnippets.find((post) => post.slug === params.slug);
   if (!post) {
     return;
   }
@@ -40,7 +40,7 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url: `${process.env.NEXT_PUBLIC_ROOT_URL!}/blog/${slug}`,
+      url: `${process.env.NEXT_PUBLIC_ROOT_URL!}/snippets/${slug}`,
       images: [
         {
           url: ogImage,
@@ -56,9 +56,9 @@ export async function generateMetadata({
   };
 }
 
-export default function Blog({ params }: { params: { slug: string } }) {
-  const post = allBlogs.find((post) =>
-    post.slug.replaceAll("blog/", "").includes(params.slug)
+export default function Snippet({ params }: { params: { slug: string } }) {
+  const post = allSnippets.find((post) =>
+    post.slug.replaceAll("/snippet", "").includes(params.slug)
   );
 
   if (!post) {

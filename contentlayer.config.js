@@ -1,17 +1,17 @@
-import { defineDocumentType, makeSource } from "contentlayer/source-files";
-import remarkGfm from "remark-gfm";
-import rehypePrettyCode from "rehype-pretty-code";
-import rehypeSlug from "rehype-slug";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import { defineDocumentType, makeSource } from 'contentlayer/source-files';
+import remarkGfm from 'remark-gfm';
+import rehypePrettyCode from 'rehype-pretty-code';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {
   slug: {
-    type: "string",
+    type: 'string',
     resolve: (doc) => doc._raw.flattenedPath,
   },
   tweetIds: {
-    type: "array",
+    type: 'array',
     resolve: (doc) => {
       const tweetMatches = doc.body.raw.match(
         /<StaticTweet\sid="[0-9]+"\s\/>/g
@@ -20,10 +20,10 @@ const computedFields = {
     },
   },
   structuredData: {
-    type: "object",
+    type: 'object',
     resolve: (doc) => ({
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
       headline: doc.title,
       datePublished: doc.publishedAt,
       dateModified: doc.publishedAt,
@@ -33,16 +33,40 @@ const computedFields = {
         : `${process.env.NEXT_PUBLIC_ROOT_URL}/og?title=${doc.title}`,
       url: `${process.env.NEXT_PUBLIC_ROOT_URL}/blog/${doc._raw.flattenedPath}`,
       author: {
-        "@type": "Person",
-        name: "Rajat Das",
+        '@type': 'Person',
+        name: 'Rajat Das',
       },
     }),
   },
 };
 
 export const Blog = defineDocumentType(() => ({
-  name: "Blog",
-  filePathPattern: `**/*.mdx`,
+  name: 'Blog',
+  filePathPattern: `blog/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: {
+      type: 'string',
+      required: true,
+    },
+    publishedAt: {
+      type: 'string',
+      required: true,
+    },
+    summary: {
+      type: 'string',
+      required: true,
+    },
+    image: {
+      type: 'string',
+    },
+  },
+  computedFields,
+}));
+
+export const Snippet = defineDocumentType(() => ({
+  name: "Snippet",
+  filePathPattern: `snippet/*.mdx`,
   contentType: "mdx",
   fields: {
     title: {
@@ -66,7 +90,7 @@ export const Blog = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: "content",
-  documentTypes: [Blog],
+  documentTypes: [Blog, Snippet],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
