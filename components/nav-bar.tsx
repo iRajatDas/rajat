@@ -3,6 +3,7 @@
 import { LayoutGroup } from "framer-motion";
 import NavItem from "./nav-item";
 import React, { Suspense } from "react";
+import ThemeToggle from "@/components/theme-toggle";
 // import { cn } from "@/lib/utils";
 
 const navItems = {
@@ -64,23 +65,22 @@ export default function Navbar() {
         ) : null}
       </AnimatePresence> */}
       <header className="-ml-2 mb-16 tracking-tight">
-        <div className="lg:sticky lg:top-20">
-          <LayoutGroup>
-            <nav
-              // ref={navRef}
-              className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
-              id="nav"
-            >
-              <div className="flex flex-row space-x-0 pr-10">
-                <Suspense fallback={null}>
-                  {Object.entries(navItems).map(([path, { name }]) => {
-                    return <NavItem key={path} path={path} name={name} />;
-                  })}
-                </Suspense>
-              </div>
-            </nav>
-          </LayoutGroup>
-        </div>
+        <LayoutGroup>
+          <nav
+            // ref={navRef}
+            className="flex flex-row items-center justify-between relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
+            id="nav"
+          >
+            <div className="flex flex-row space-x-0 pr-10">
+              <Suspense fallback={null}>
+                {Object.entries(navItems).map(([path, { name }]) => {
+                  return <NavItem key={path} path={path} name={name} />;
+                })}
+              </Suspense>
+            </div>
+            <ThemeToggle />
+          </nav>
+        </LayoutGroup>
       </header>
     </>
   );

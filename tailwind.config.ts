@@ -10,7 +10,7 @@ export default {
     "./content/**/*.mdx",
   ],
   // darkMode: `media`,
-  darkMode: ["class", '[data-mode="dark"]'],
+  darkMode: ["class"],
   theme: {
     extend: {
       fontFamily: {

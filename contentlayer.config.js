@@ -5,7 +5,7 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
-const computedFields = {
+const computedBlogFields = {
   slug: {
     type: "string",
     resolve: (doc) => {
@@ -42,6 +42,44 @@ const computedFields = {
     }),
   },
 };
+/** @type {import('contentlayer/source-files').ComputedFields} */
+const computedSnippetFields = {
+  slug: {
+    type: "string",
+    resolve: (doc) => {
+      const fileName = doc._raw.flattenedPath.split("/").slice(1).toString();
+      return fileName;
+    },
+  },
+  tweetIds: {
+    type: "array",
+    resolve: (doc) => {
+      const tweetMatches = doc.body.raw.match(
+        /<StaticTweet\sid="[0-9]+"\s\/>/g
+      );
+      return tweetMatches?.map((tweet) => tweet.match(/[0-9]+/g)[0]) || [];
+    },
+  },
+  structuredData: {
+    type: "object",
+    resolve: (doc) => ({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: doc.title,
+      datePublished: doc.publishedAt,
+      dateModified: doc.publishedAt,
+      description: doc.summary,
+      image: doc.image
+        ? `${process.env.NEXT_PUBLIC_ROOT_URL}${doc.image}`
+        : `${process.env.NEXT_PUBLIC_ROOT_URL}/og?title=${doc.title}`,
+      url: `${process.env.NEXT_PUBLIC_ROOT_URL}/snippets/${doc._raw.flattenedPath}`,
+      author: {
+        "@type": "Person",
+        name: "Rajat Das",
+      },
+    }),
+  },
+};
 
 export const Blog = defineDocumentType(() => ({
   name: "Blog",
@@ -64,7 +102,7 @@ export const Blog = defineDocumentType(() => ({
       type: "string",
     },
   },
-  computedFields,
+  computedFields: computedBlogFields,
 }));
 
 export const Snippet = defineDocumentType(() => ({
@@ -88,7 +126,7 @@ export const Snippet = defineDocumentType(() => ({
       type: "string",
     },
   },
-  computedFields,
+  computedFields: computedSnippetFields,
 }));
 
 export default makeSource({
@@ -122,7 +160,7 @@ export default makeSource({
         {
           properties: {
             className: ["anchor"],
-            style: "padding-left: 0.375rem;"
+            style: "padding-left: 0.375rem;",
           },
         },
       ],

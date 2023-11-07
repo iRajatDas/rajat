@@ -4,6 +4,7 @@ import { fontMono, fontSans } from "@/lib/fonts";
 import env from "@/lib/env";
 import Navbar from "@/components/nav-bar";
 import { cn } from "@/lib/utils";
+import Provider from "@/lib/provider";
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_ROOT_URL),
@@ -48,15 +49,16 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn(fontSans.variable, fontMono.variable, "dark")}
-      data-mode="dark"
+      className={cn(fontSans.variable, fontMono.variable, "")}
     >
       {/* <body className={"min-h-screen bg-background font-sans antialiased"}> */}
       <body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto scroll-smooth">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 relative">
-          <Navbar />
-          {children}
-        </main>
+        <Provider>
+          <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 relative">
+            <Navbar />
+            {children}
+          </main>
+        </Provider>
       </body>
     </html>
   );
