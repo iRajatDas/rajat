@@ -86,3 +86,11 @@ export default function Blog({ params }: { params: { slug: string } }) {
     </section>
   );
 }
+
+export async function generateStaticParams() {
+  return [
+    {
+      slug: "blog",
+    },
+  ];
+}
