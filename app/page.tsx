@@ -95,15 +95,26 @@ export default function Page() {
       </div>
       <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-600 dark:text-neutral-300">
         <li>
-          <a
+          <Link
             className="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://twitter.com/iRajatDas"
+            href="https://twitter.com/RajatDas_"
           >
             <ArrowIcon />
             <p className="h-7 ml-2">follow me</p>
-          </a>
+          </Link>
+        </li>
+        <li>
+          <Link
+            className="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://github.com/iRajatDas"
+          >
+            <ArrowIcon />
+            <p className="h-7 ml-2">github</p>
+          </Link>
         </li>
       </ul>
     </section>
