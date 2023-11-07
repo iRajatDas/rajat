@@ -34,3 +34,6 @@ export function formatDate(date: string) {
 
   return `${fullDate} (${formattedDate})`;
 }
+export const getISODate = (date: string) => {
+  return new Date(date).toISOString();
+};

@@ -122,6 +122,7 @@ export default makeSource({
         {
           properties: {
             className: ["anchor"],
+            style: "padding-left: 0.375rem;"
           },
         },
       ],
