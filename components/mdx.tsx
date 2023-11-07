@@ -1,32 +1,44 @@
 import * as React from "react";
-import Link from "next/link";
-import Image from "next/image";
+import Link, { LinkProps } from "next/link";
+import Image, { ImageProps } from "next/image";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { TweetComponent } from "./tweet";
 
-const CustomLink = (props) => {
-  const href = props.href;
-
+const CustomLink = ({
+  href,
+  children,
+  ...props
+}: {
+  href: string;
+  children: React.ReactNode;
+} & any) => {
   if (href.startsWith("/")) {
     return (
-      <Link href={href} {...props}>
-        {props.children}
+      <Link href={href}>
+        <a {...props}>{children}</a>
       </Link>
     );
   }
 
   if (href.startsWith("#")) {
-    return <a {...props} />;
+    return <a {...props}>{children}</a>;
   }
 
-  return <a target="_blank" rel="noopener noreferrer" {...props} />;
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
+      {children}
+    </a>
+  );
 };
 
-function RoundedImage(props) {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />;
+interface RoundedImageProps extends ImageProps {
+  alt: string;
 }
 
-function Callout(props) {
+const RoundedImage: React.FC<RoundedImageProps> = ({ alt, ...props }) => {
+  return <Image alt={alt} className="rounded-lg" {...props} />;
+};
+function Callout(props: { emoji: React.ReactNode; children: React.ReactNode }) {
   return (
     <div className="px-4 py-3 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm flex items-center text-neutral-900 dark:text-neutral-100 mb-8">
       <div className="flex items-center w-4 mr-4">{props.emoji}</div>
@@ -35,7 +47,7 @@ function Callout(props) {
   );
 }
 
-function ProsCard({ title, pros }) {
+function ProsCard({ title, pros }: { title: string; pros: string[] }) {
   return (
     <div className="border border-emerald-200 dark:border-emerald-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-6 my-4 w-full">
       <span>{`You might use ${title} if...`}</span>
@@ -64,7 +76,7 @@ function ProsCard({ title, pros }) {
   );
 }
 
-function ConsCard({ title, cons }) {
+function ConsCard({ title, cons }: { title: string; cons: string[] }) {
   return (
     <div className="border border-red-200 dark:border-red-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-6 my-6 w-full">
       <span>{`You might not use ${title} if...`}</span>

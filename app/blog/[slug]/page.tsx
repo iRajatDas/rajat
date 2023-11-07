@@ -57,9 +57,7 @@ export async function generateMetadata({
 }
 
 export default function Blog({ params }: { params: { slug: string } }) {
-  const post = allBlogs.find((post) =>
-    post.slug.replaceAll("blog/", "").includes(params.slug)
-  );
+  const post = allBlogs.find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();

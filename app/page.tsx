@@ -56,8 +56,8 @@ export default function Page() {
       <div className="my-8 flex flex-col space-y-4 w-full">
         <Suspense>
           <BlogLink
-            name="What Makes A Great Developer Experience?"
-            slug="developer-experience-examples"
+            name="Promises, Async/Await, and Callbacks in JavaScript"
+            slug="asynchronous-operations-promises-async-await-callbacks-javascript"
           />
           <BlogLink
             name="2023 State of Databases for Serverless & Edge"

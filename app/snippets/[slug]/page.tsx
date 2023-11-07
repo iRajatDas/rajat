@@ -16,8 +16,8 @@ export async function generateMetadata({
     slug: string;
   };
 }): Promise<Metadata | undefined> {
-  const post = allSnippets.find((post) => post.slug === params.slug);
-  if (!post) {
+  const snippet = allSnippets.find((snippet) => snippet.slug === params.slug);
+  if (!snippet) {
     return;
   }
 
@@ -27,7 +27,7 @@ export async function generateMetadata({
     summary: description,
     image,
     slug,
-  } = post;
+  } = snippet;
   const ogImage = image
     ? `${process.env.NEXT_PUBLIC_ROOT_URL!}${image}`
     : `${process.env.NEXT_PUBLIC_ROOT_URL!}/og?title=${title}`;
@@ -57,11 +57,9 @@ export async function generateMetadata({
 }
 
 export default function Snippet({ params }: { params: { slug: string } }) {
-  const post = allSnippets.find((post) =>
-    post.slug.replaceAll("/snippet", "").includes(params.slug)
-  );
+  const snippet = allSnippets.find((snippet) => snippet.slug === params.slug);
 
-  if (!post) {
+  if (!snippet) {
     notFound();
   }
   return (
@@ -70,21 +68,21 @@ export default function Snippet({ params }: { params: { slug: string } }) {
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(post.structuredData),
+          __html: JSON.stringify(snippet.structuredData),
         }}
       ></script>
       <h1 className="font-semibold text-2xl tracking-tighter max-w-[650px]">
-        <Balancer>{post.title}</Balancer>
+        <Balancer>{snippet.title}</Balancer>
       </h1>
       <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {formatDate(post.publishedAt)}
+          {formatDate(snippet.publishedAt)}
         </p>
         <Suspense fallback={<p className="h-5" />}>
-          <Views slug={post.slug} trackView />
+          <Views slug={snippet.slug} trackView />
         </Suspense>
       </div>
-      <Mdx code={post.body.code} />
+      <Mdx code={snippet.body.code} />
     </section>
   );
 }
