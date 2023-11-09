@@ -1,0 +1,20 @@
+/*@jsxRuntime automatic @jsxImportSource react*/
+const {jsx: _jsx} = arguments[0];
+const {useMDXComponents: _provideComponents} = arguments[0];
+function _createMdxContent(props) {
+  const _components = Object.assign({
+    p: "p"
+  }, _provideComponents(), props.components);
+  return _jsx(_components.p, {
+    children: "asdasd"
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = Object.assign({}, _provideComponents(), props.components);
+  return MDXLayout ? _jsx(MDXLayout, Object.assign({}, props, {
+    children: _jsx(_createMdxContent, props)
+  })) : _createMdxContent(props);
+}
+return {
+  default: MDXContent
+};
