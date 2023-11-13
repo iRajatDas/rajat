@@ -55,35 +55,33 @@ export default function NewPost() {
   });
 
   const onSubmit = async (data: FormValues) => {
-    const frontmatter = `
----
+    const frontmatter = `---
 title: ${data.title}
-summary: ${data.summary}
 publishedAt: ${format(new Date(), "yyyy-MM-dd")}
+summary: ${data.summary}
 ---
-    `;
+`.trim();
 
     const content = `${frontmatter}\n${data.content}`;
 
     try {
-      const promise = () =>
-        new Promise(
-          async (resolve) =>
-            await pushContent({
-              content,
-              slug: data.slug,
-              type: "blog",
-            }).then(() => resolve("success"))
-        );
-      toast.promise(promise, {
+      const publishPost = async () => {
+        await pushContent({
+          content,
+          slug: data.slug,
+          type: "blog",
+        });
+      };
+
+      const toastOptions = {
         loading: "Loading...",
-        success: () => {
-          return `Post published successfully`;
-        },
+        success: () => "Post published successfully",
         error: "Error while publishing",
-      });
+      };
+
+      await toast.promise(publishPost, toastOptions);
     } catch (error) {
-      console.log("Error while publishing", error);
+      console.error("Error while publishing", error);
     }
   };
 
