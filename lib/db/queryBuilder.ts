@@ -26,7 +26,7 @@ const migrateDB = async () => {
   }
 };
 
-migrateDB();
+// migrateDB();
 
 // export const queryBuilder = db;
 export * from "./schema";
