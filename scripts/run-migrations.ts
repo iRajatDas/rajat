@@ -15,4 +15,4 @@ const main = async () => {
   }
 };
 
-main();
+void main();
