@@ -3,7 +3,7 @@
 import React from "react";
 import { Moon, Lightbulb } from "lucide-react";
 import { useTheme } from "next-themes";
-import ClientOnly from "@/app/client-only";
+import ClientOnly from "@/components/client-only";
 
 const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
