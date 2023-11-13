@@ -4,6 +4,7 @@ import { queryBuilder, view } from "@/lib/db/queryBuilder";
 import { eq } from "drizzle-orm";
 import { Octokit } from "@octokit/rest";
 import { slugify } from "@/lib/utils";
+import env from "@/lib/env";
 
 export async function incrementViews(slug: string) {
   const toIncrement = await queryBuilder.query.view.findFirst({
@@ -57,7 +58,7 @@ export async function getViewCount(slug: string): Promise<
 
 const fileExists = async (slug: string, type: "blog" | "snippet") => {
   const octokit = new Octokit({
-    auth: process.env.PAT,
+    auth: env.GHP_PAT,
   });
 
   const slugified = slugify(slug);
@@ -86,7 +87,7 @@ export const pushContent = async ({
 }) =>  {
   try {
     const octokit = new Octokit({
-      auth: process.env.PAT,
+      auth: env.GHP_PAT,
     });
 
     const slugified = slugify(slug);

@@ -10,7 +10,7 @@ const envSchema = zod.object({
   POSTGRES_PASSWORD: zod.string().optional(),
   POSTGRES_DATABASE: zod.string(),
   NEXT_PUBLIC_ROOT_URL: zod.string(),
-  // NEXT_PUBLIC_PAT: zod.string(),
+  GHP_PAT: zod.string(),
 });
 const env = envSchema.parse(process.env);
 export default env;

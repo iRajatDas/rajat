@@ -1,3 +1,5 @@
+import env from "@/lib/env";
+
 export default function robots() {
   return {
     rules: [
@@ -5,7 +7,7 @@ export default function robots() {
         userAgent: "*",
       },
     ],
-    sitemap: `${process.env.NEXT_PUBLIC_ROOT_URL}/sitemap.xml`,
-    host: process.env.NEXT_PUBLIC_ROOT_URL!,
+    sitemap: `${env.NEXT_PUBLIC_ROOT_URL}/sitemap.xml`,
+    host: env.NEXT_PUBLIC_ROOT_URL!,
   };
 }

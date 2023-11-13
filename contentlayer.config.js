@@ -3,6 +3,7 @@ import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import env from "@/lib/env";
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedBlogFields = {
@@ -32,9 +33,9 @@ const computedBlogFields = {
       dateModified: doc.publishedAt,
       description: doc.summary,
       image: doc.image
-        ? `${process.env.NEXT_PUBLIC_ROOT_URL}${doc.image}`
-        : `${process.env.NEXT_PUBLIC_ROOT_URL}/og?title=${doc.title}`,
-      url: `${process.env.NEXT_PUBLIC_ROOT_URL}/blog/${doc._raw.flattenedPath}`,
+        ? `${env.NEXT_PUBLIC_ROOT_URL}${doc.image}`
+        : `${env.NEXT_PUBLIC_ROOT_URL}/og?title=${doc.title}`,
+      url: `${env.NEXT_PUBLIC_ROOT_URL}/blog/${doc._raw.flattenedPath}`,
       author: {
         "@type": "Person",
         name: "Rajat Das",
@@ -70,9 +71,9 @@ const computedSnippetFields = {
       dateModified: doc.publishedAt,
       description: doc.summary,
       image: doc.image
-        ? `${process.env.NEXT_PUBLIC_ROOT_URL}${doc.image}`
-        : `${process.env.NEXT_PUBLIC_ROOT_URL}/og?title=${doc.title}`,
-      url: `${process.env.NEXT_PUBLIC_ROOT_URL}/snippets/${doc._raw.flattenedPath}`,
+        ? `${env.NEXT_PUBLIC_ROOT_URL}${doc.image}`
+        : `${env.NEXT_PUBLIC_ROOT_URL}/og?title=${doc.title}`,
+      url: `${env.NEXT_PUBLIC_ROOT_URL}/snippets/${doc._raw.flattenedPath}`,
       author: {
         "@type": "Person",
         name: "Rajat Das",

@@ -6,6 +6,7 @@ import Balancer from "react-wrap-balancer";
 import { Suspense } from "react";
 import { formatDate } from "@/lib/utils";
 import Views from "@/components/views";
+import env from "@/lib/env";
 
 export const dynamic = "force-static";
 
@@ -29,8 +30,8 @@ export async function generateMetadata({
     slug,
   } = snippet;
   const ogImage = image
-    ? `${process.env.NEXT_PUBLIC_ROOT_URL!}${image}`
-    : `${process.env.NEXT_PUBLIC_ROOT_URL!}/og?title=${title}`;
+    ? `${env.NEXT_PUBLIC_ROOT_URL!}${image}`
+    : `${env.NEXT_PUBLIC_ROOT_URL!}/og?title=${title}`;
 
   return {
     title,
@@ -40,7 +41,7 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url: `${process.env.NEXT_PUBLIC_ROOT_URL!}/snippets/${slug}`,
+      url: `${env.NEXT_PUBLIC_ROOT_URL!}/snippets/${slug}`,
       images: [
         {
           url: ogImage,
