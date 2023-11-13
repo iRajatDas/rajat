@@ -13,18 +13,18 @@ const pool = new Pool({
 
 export const queryBuilder = drizzle(pool, { schema });
 
-const migrateDB = async () => {
-  try {
-    await migrate(queryBuilder, { migrationsFolder: "migrations" });
-    console.log("🚀 Migrations ran successfully!");
-  } catch (err) {
-    if (err instanceof Error) {
-      console.error(`🚨 Error running migrations: ${err.message}`);
-    }
+// const migrateDB = async () => {
+//   try {
+//     await migrate(queryBuilder, { migrationsFolder: "migrations" });
+//     console.log("🚀 Migrations ran successfully!");
+//   } catch (err) {
+//     if (err instanceof Error) {
+//       console.error(`🚨 Error running migrations: ${err.message}`);
+//     }
 
-    process.exit(1);
-  }
-};
+//     process.exit(1);
+//   }
+// };
 
 // migrateDB();
 
