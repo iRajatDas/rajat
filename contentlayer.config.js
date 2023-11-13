@@ -3,7 +3,7 @@ import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import env from "@/lib/env";
+import env from "./lib/env";
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedBlogFields = {
