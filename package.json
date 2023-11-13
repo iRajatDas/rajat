@@ -9,12 +9,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "pnpm db:generate && db:migrate && pnpm db:push",
+    "postinstall": "pnpm db:generate && bun ./scripts/run-migrations.ts && pnpm db:push",
     "introspect": "drizzle-kit introspect:pg",
     "db:generate": "drizzle-kit generate:pg",
     "db:push": "drizzle-kit push:pg",
-    "db:studio": "drizzle-kit studio",
-    "db:migrate": "bun ./scripts/run-migrations.ts"
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
