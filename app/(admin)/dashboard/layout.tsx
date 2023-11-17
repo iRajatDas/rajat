@@ -8,7 +8,7 @@ import Provider from "@/lib/provider";
 import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(env.NEXT_PUBLIC_ROOT_URL),
+  metadataBase: new URL(env.NEXTAUTH_URL),
   title: {
     default: "Rajat Das",
     template: "%s | Rajat Das",

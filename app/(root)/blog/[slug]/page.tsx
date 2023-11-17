@@ -30,8 +30,8 @@ export async function generateMetadata({
     slug,
   } = post;
   const ogImage = image
-    ? `${env.NEXT_PUBLIC_ROOT_URL!}${image}`
-    : `${env.NEXT_PUBLIC_ROOT_URL!}/og?title=${title}`;
+    ? `${env.NEXTAUTH_URL!}${image}`
+    : `${env.NEXTAUTH_URL!}/og?title=${title}`;
 
   return {
     title,
@@ -41,7 +41,7 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url: `${env.NEXT_PUBLIC_ROOT_URL!}/blog/${slug}`,
+      url: `${env.NEXTAUTH_URL!}/blog/${slug}`,
       images: [
         {
           url: ogImage,

@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import Provider from "@/lib/provider";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(env.NEXT_PUBLIC_ROOT_URL),
+  metadataBase: new URL(env.NEXTAUTH_URL),
   title: {
     default: "Rajat Das",
     template: "%s | Rajat Das",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "Rajat Das Portfolio",
     description:
       "Expertise in React and Next.js. Rajat Das: Your dedicated Frontend UI/UX developer, ensuring intuitive interfaces and exceptional user satisfaction.",
-    url: env.NEXT_PUBLIC_ROOT_URL,
+    url: env.NEXTAUTH_URL,
     siteName: "Rajat Das",
     locale: "en_US",
     type: "website",

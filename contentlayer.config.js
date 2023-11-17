@@ -33,9 +33,9 @@ const computedBlogFields = {
       dateModified: doc.publishedAt,
       description: doc.summary,
       image: doc.image
-        ? `${env.NEXT_PUBLIC_ROOT_URL}${doc.image}`
-        : `${env.NEXT_PUBLIC_ROOT_URL}/og?title=${doc.title}`,
-      url: `${env.NEXT_PUBLIC_ROOT_URL}/blog/${doc._raw.flattenedPath}`,
+        ? `${env.NEXTAUTH_URL}${doc.image}`
+        : `${env.NEXTAUTH_URL}/og?title=${doc.title}`,
+      url: `${env.NEXTAUTH_URL}/blog/${doc._raw.flattenedPath}`,
       author: {
         "@type": "Person",
         name: "Rajat Das",
@@ -71,9 +71,9 @@ const computedSnippetFields = {
       dateModified: doc.publishedAt,
       description: doc.summary,
       image: doc.image
-        ? `${env.NEXT_PUBLIC_ROOT_URL}${doc.image}`
-        : `${env.NEXT_PUBLIC_ROOT_URL}/og?title=${doc.title}`,
-      url: `${env.NEXT_PUBLIC_ROOT_URL}/snippets/${doc._raw.flattenedPath}`,
+        ? `${env.NEXTAUTH_URL}${doc.image}`
+        : `${env.NEXTAUTH_URL}/og?title=${doc.title}`,
+      url: `${env.NEXTAUTH_URL}/snippets/${doc._raw.flattenedPath}`,
       author: {
         "@type": "Person",
         name: "Rajat Das",

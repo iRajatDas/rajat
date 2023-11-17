@@ -4,7 +4,9 @@ import { LayoutGroup } from "framer-motion";
 import NavItem from "./nav-item";
 import React, { Suspense } from "react";
 import ThemeToggle from "@/components/theme-toggle";
-// import { cn } from "@/lib/utils";
+import { useSession, signIn } from "next-auth/react";
+import { Button } from "./ui/button";
+import { LogOut } from "lucide-react";
 
 const navItems = {
   "/": {
@@ -78,7 +80,12 @@ export default function Navbar() {
                 })}
               </Suspense>
             </div>
-            <ThemeToggle />
+            <div className="flex items-center gap-2">
+              <ThemeToggle />
+              <Button onClick={() => signIn} size={"icon"} variant={"outline"}>
+                <LogOut />
+              </Button>
+            </div>
           </nav>
         </LayoutGroup>
       </header>

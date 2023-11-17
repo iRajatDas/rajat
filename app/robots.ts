@@ -7,7 +7,7 @@ export default function robots() {
         userAgent: "*",
       },
     ],
-    sitemap: `${env.NEXT_PUBLIC_ROOT_URL}/sitemap.xml`,
-    host: env.NEXT_PUBLIC_ROOT_URL!,
+    sitemap: `${env.NEXTAUTH_URL}/sitemap.xml`,
+    host: env.NEXTAUTH_URL!,
   };
 }

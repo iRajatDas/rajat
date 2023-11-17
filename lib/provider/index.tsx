@@ -1,6 +1,7 @@
 "use client";
 import React, { FC } from "react";
 import { ThemeProvider } from "next-themes";
+import { AuthProvider } from "./auth-provider";
 
 interface ProviderProps {
   children: React.ReactNode;
@@ -14,7 +15,7 @@ const Provider: FC<ProviderProps> = ({ children }) => {
       attribute="class"
       storageKey="theme"
     >
-      {children}
+      <AuthProvider>{children}</AuthProvider>
     </ThemeProvider>
   );
 };

@@ -3,14 +3,14 @@ dotenv.config({ path: ".env" });
 import zod from "zod";
 
 const envSchema = zod.object({
-  POSTGRES_URL: zod.string(),
-  POSTGRES_URL_NON_POOLING: zod.string(),
-  POSTGRES_USER: zod.string(),
-  POSTGRES_HOST: zod.string(),
+  DATABASE_URL: zod.string(),
+  NEXTAUTH_SECRET: zod.string(),
+  GOOGLE_CLIENT_ID: zod.string(),
+  GOOGLE_CLIENT_SECRET: zod.string(),
   POSTGRES_PASSWORD: zod.string().optional(),
-  POSTGRES_DATABASE: zod.string(),
-  NEXT_PUBLIC_ROOT_URL: zod.string(),
+  NEXTAUTH_URL: zod.string(),
   GHP_PAT: zod.string(),
+  RESEND_EMAIL_FROM: zod.string(),
 });
 const env = envSchema.parse(process.env);
 export default env;
