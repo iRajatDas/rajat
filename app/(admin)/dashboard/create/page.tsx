@@ -16,6 +16,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { format } from "date-fns";
 import { toast } from "sonner";
+import Editor from "@/components/editor";
+import type { MDXEditorMethods } from "@mdxeditor/editor";
+import { useRef } from "react";
 
 const formSchema = z.object({
   content: z
@@ -44,6 +47,8 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 export default function NewPost() {
+  const editor = useRef<MDXEditorMethods>(null);
+
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -143,10 +148,19 @@ summary: ${data.summary}
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <NovelEditor
+                <Editor
+                  editorRef={editor}
+                  markdown={field.value}
+                  onChange={(editor) => {
+                    field.onChange(editor);
+                  }}
+                />
+
+                {/* <NovelEditor
                   defaultValue={field.value}
                   onUpdate={(editor) => {
                     field.onChange(editor?.storage.markdown.getMarkdown());
+                    console.log(editor?.storage.markdown.getMarkdown());
                   }}
                   disableLocalStorage={true}
                   onDebouncedUpdate={(editor) => {
@@ -159,7 +173,7 @@ summary: ${data.summary}
                         "!px-0 novel-prose-lg novel-prose-stone dark:novel-prose-invert prose-headings:novel-font-title novel-font-default focus:novel-outline-none novel-max-w-full",
                     },
                   }}
-                />
+                /> */}
               </FormControl>
               <FormMessage />
             </FormItem>
