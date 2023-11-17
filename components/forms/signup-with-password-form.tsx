@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useRouter } from "next/navigation";
-import { signUpWithPassword } from "@/actions/auth";
+// import { signUpWithPassword } from "@/actions/auth";
 import { signUpWithPasswordSchema } from "@/lib/validations/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -41,12 +41,13 @@ export function SignUpWithPasswordForm(): JSX.Element {
     startTransition(async () => {
       console.log("formData", formData);
       try {
-        const message = await signUpWithPassword(
-          formData.email,
-          formData.password
-        );
+        // const message = await signUpWithPassword(
+        //   formData.email,
+        //   formData.password
+        // );
+        let message;
 
-        switch (message) {
+        switch (message as any) {
           case "exists":
             toast.error("User with this email address already exists", {
               description: "If this is you, please sign in instead",
