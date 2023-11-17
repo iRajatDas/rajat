@@ -52,7 +52,7 @@ export default function RootLayout({
       className={cn(fontSans.variable, fontMono.variable, "")}
     >
       {/* <body className={"min-h-screen bg-background font-sans antialiased"}> */}
-      <body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8w sm:mx-auto scroll-smooth">
+      <body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8w sm:mx-auto scroll-smooth --">
         <Provider>
           <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 relative">
             <Navbar />
