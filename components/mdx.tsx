@@ -14,8 +14,8 @@ const CustomLink = ({
 } & any) => {
   if (href.startsWith("/")) {
     return (
-      <Link href={href}>
-        <a {...props}>{children}</a>
+      <Link href={href} {...props}>
+        {children}
       </Link>
     );
   }

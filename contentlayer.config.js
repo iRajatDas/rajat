@@ -10,7 +10,12 @@ const computedBlogFields = {
   slug: {
     type: "string",
     resolve: (doc) => {
-      const fileName = doc._raw.flattenedPath.split("/").slice(1).toString();
+      const fileName = doc._raw.flattenedPath
+        .split("/")
+        .slice(1)
+        .toString()
+        .split(",")[0];
+      console.log(fileName);
       return fileName;
     },
   },
@@ -48,7 +53,12 @@ const computedSnippetFields = {
   slug: {
     type: "string",
     resolve: (doc) => {
-      const fileName = doc._raw.flattenedPath.split("/").slice(1).toString();
+      const fileName = doc._raw.flattenedPath
+        .split("/")
+        .slice(1)
+        .toString()
+        .split(",")[0];
+
       return fileName;
     },
   },
@@ -84,7 +94,7 @@ const computedSnippetFields = {
 
 export const Blog = defineDocumentType(() => ({
   name: "Blog",
-  filePathPattern: `blog/*.mdx`,
+  filePathPattern: `blog/**/*.mdx`,
   contentType: "mdx",
   fields: {
     title: {
@@ -108,8 +118,11 @@ export const Blog = defineDocumentType(() => ({
 
 export const Snippet = defineDocumentType(() => ({
   name: "Snippet",
-  filePathPattern: `snippet/*.mdx`,
+  filePathPattern: `snippet/**/*.mdx`,
   contentType: "mdx",
+  extensions: {
+    stackbit: {},
+  },
   fields: {
     title: {
       type: "string",

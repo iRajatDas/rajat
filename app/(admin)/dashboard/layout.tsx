@@ -44,11 +44,10 @@ export default function DashboardLayout({
       suppressHydrationWarning
       className={cn(fontSans.variable, fontMono.variable, "")}
     >
-      <body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8w sm:mx-auto scroll-smooth">
+      <body className="antialiased mb-40 flex flex-col md:flex-row --mt-8 sm:mx-auto scroll-smooth">
         <Toaster richColors />
         <Provider>
-       
-          <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 relative">
+          <main className="flex-auto min-w-0 mt-6 flex flex-col px-4 md:px-0 relative max-w-2xl md:mx-auto">
             <Navbar />
             {children}
           </main>

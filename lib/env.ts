@@ -3,6 +3,7 @@ dotenv.config({ path: ".env" });
 import zod from "zod";
 
 const envSchema = zod.object({
+
   DATABASE_URL: zod.string(),
   NEXTAUTH_SECRET: zod.string(),
   GOOGLE_CLIENT_ID: zod.string(),
@@ -12,5 +13,7 @@ const envSchema = zod.object({
   GHP_PAT: zod.string(),
   RESEND_EMAIL_FROM: zod.string(),
 });
+
 const env = envSchema.parse(process.env);
+
 export default env;

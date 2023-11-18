@@ -1,12 +1,9 @@
 "use client";
-// import { AnimatePresence, motion, useInView } from "framer-motion";
 import { LayoutGroup } from "framer-motion";
 import NavItem from "./nav-item";
 import React, { Suspense } from "react";
 import ThemeToggle from "@/components/theme-toggle";
-import { useSession, signIn } from "next-auth/react";
-import { Button } from "./ui/button";
-import { LogOut } from "lucide-react";
+
 
 const navItems = {
   "/": {
@@ -21,51 +18,8 @@ const navItems = {
 };
 
 export default function Navbar() {
-  // const navRef = React.useRef<HTMLElement>(null);
-
-  // const inView = useInView(navRef, {
-  // margin: "30px",
-  // });
-
   return (
     <>
-      {/* <AnimatePresence>
-        {!inView ? (
-          <motion.header
-            // slide from to to bottom and exit to top
-            initial={{ y: -100 }}
-            animate={{ y: 0 }}
-            exit={{ y: -100 }}
-            transition={{
-              duration: 0.3,
-              type: "spring",
-              stiffness: 350,
-              damping: 30,
-            }}
-            className={cn("fixed inset-0 w-full max-w-2xl mx-auto h-fit top-0")}
-          >
-            <LayoutGroup>
-              <nav
-                ref={navRef}
-                className={cn(
-                  "flex flex-row items-center gap-4 justify-between relative pb-0 fade md:overflow-auto scroll-pr-6 md:relative",
-                  "py-4 px-2 bg-neutral-900/70 border border-neutral-200 dark:border-neutral-700 backdrop-blur-xl mt-4 rounded-md m-4 sm:mx-0 sm:mb-0 sm:mt-4"
-                )}
-                id="nav"
-              >
-                <div className="h-10 w-10 rounded-full border-4 border-rose-500 bg-rose-200"></div>
-                <div className="flex flex-row space-x-0">
-                  <Suspense fallback={null}>
-                    {Object.entries(navItems).map(([path, { name }]) => {
-                      return <NavItem key={path} path={path} name={name} />;
-                    })}
-                  </Suspense>
-                </div>
-              </nav>
-            </LayoutGroup>
-          </motion.header>
-        ) : null}
-      </AnimatePresence> */}
       <header className="-ml-2 mb-16 tracking-tight">
         <LayoutGroup>
           <nav
@@ -82,9 +36,6 @@ export default function Navbar() {
             </div>
             <div className="flex items-center gap-2">
               <ThemeToggle />
-              <Button onClick={() => signIn} size={"icon"} variant={"outline"}>
-                <LogOut />
-              </Button>
             </div>
           </nav>
         </LayoutGroup>

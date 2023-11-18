@@ -1,6 +1,5 @@
 "use client";
-import { Editor as NovelEditor } from "novel";
-import { pushContent } from "@/actions";
+import { createArticleWithMetadata } from "@/actions";
 import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -19,6 +18,14 @@ import { toast } from "sonner";
 import Editor from "@/components/editor";
 import type { MDXEditorMethods } from "@mdxeditor/editor";
 import { useRef } from "react";
+
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const formSchema = z.object({
   content: z
@@ -42,6 +49,10 @@ const formSchema = z.object({
     .max(255, {
       message: "Slug is too long",
     }),
+  // add type of article, blog/ snippet
+  type: z.enum(["blog", "snippet"], {
+    required_error: "Type is required",
+  }),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -60,10 +71,11 @@ export default function NewPost() {
   });
 
   const onSubmit = async (data: FormValues) => {
+    console.log(data);
     const frontmatter = `---
-title: ${data.title}
-publishedAt: ${format(new Date(), "yyyy-MM-dd")}
-summary: ${data.summary}
+title: "${data.title}"
+publishedAt: "${format(new Date(), "yyyy-MM-dd")}"
+summary: "${data.summary}"
 ---
 `.trim();
 
@@ -71,11 +83,16 @@ summary: ${data.summary}
 
     try {
       const publishPost = async () => {
-        await pushContent({
+        await createArticleWithMetadata(
+          "iRajatDas",
+          "rajat",
+          "main",
           content,
-          slug: data.slug,
-          type: "blog",
-        });
+          data.slug,
+          data.type,
+          data.title,
+          data.summary
+        );
       };
 
       const toastOptions = {
@@ -144,6 +161,36 @@ summary: ${data.summary}
 
         <FormField
           control={form.control}
+          name="type"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Type</FormLabel>
+              <FormControl>
+                <Select
+                  value={field.value}
+                  onValueChange={(value) => {
+                    field.onChange(value);
+                  }}
+                >
+                  <SelectTrigger>
+                    <SelectValue
+                      placeholder="Select Post Type"
+                      defaultValue={field.value ?? undefined}
+                    />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="blog">Blog</SelectItem>
+                    <SelectItem value="snippet">Snippet</SelectItem>
+                  </SelectContent>
+                </Select>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
           name="content"
           render={({ field }) => (
             <FormItem>
@@ -155,25 +202,6 @@ summary: ${data.summary}
                     field.onChange(editor);
                   }}
                 />
-
-                {/* <NovelEditor
-                  defaultValue={field.value}
-                  onUpdate={(editor) => {
-                    field.onChange(editor?.storage.markdown.getMarkdown());
-                    console.log(editor?.storage.markdown.getMarkdown());
-                  }}
-                  disableLocalStorage={true}
-                  onDebouncedUpdate={(editor) => {
-                    field.onChange(editor?.storage.markdown.getMarkdown());
-                  }}
-                  className="dark w-full !p-0"
-                  editorProps={{
-                    attributes: {
-                      class:
-                        "!px-0 novel-prose-lg novel-prose-stone dark:novel-prose-invert prose-headings:novel-font-title novel-font-default focus:novel-outline-none novel-max-w-full",
-                    },
-                  }}
-                /> */}
               </FormControl>
               <FormMessage />
             </FormItem>
