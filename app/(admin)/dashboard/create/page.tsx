@@ -26,6 +26,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { slugify } from "@/lib/utils";
 
 const formSchema = z.object({
   content: z
@@ -137,7 +138,14 @@ summary: "${data.summary}"
             <FormItem>
               <FormLabel>Slug</FormLabel>
               <FormControl>
-                <Input placeholder="my-first-post" {...field} />
+                <Input
+                  placeholder="my-first-post"
+                  {...field}
+                  onChange={(e) => {
+                    // transform to slug as user types
+                    field.onChange(slugify(e.target.value));
+                  }}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
