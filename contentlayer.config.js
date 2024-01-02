@@ -16,7 +16,8 @@ const computedBlogFields = {
         .toString()
         .split(",")[0];
       console.log(fileName);
-      return fileName;
+      
+return fileName;
     },
   },
   tweetIds: {
@@ -25,7 +26,8 @@ const computedBlogFields = {
       const tweetMatches = doc.body.raw.match(
         /<StaticTweet\sid="[0-9]+"\s\/>/g
       );
-      return tweetMatches?.map((tweet) => tweet.match(/[0-9]+/g)[0]) || [];
+      
+return tweetMatches?.map((tweet) => tweet.match(/[0-9]+/g)[0]) || [];
     },
   },
   structuredData: {
@@ -48,6 +50,7 @@ const computedBlogFields = {
     }),
   },
 };
+
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedSnippetFields = {
   slug: {
@@ -68,7 +71,8 @@ const computedSnippetFields = {
       const tweetMatches = doc.body.raw.match(
         /<StaticTweet\sid="[0-9]+"\s\/>/g
       );
-      return tweetMatches?.map((tweet) => tweet.match(/[0-9]+/g)[0]) || [];
+      
+return tweetMatches?.map((tweet) => tweet.match(/[0-9]+/g)[0]) || [];
     },
   },
   structuredData: {

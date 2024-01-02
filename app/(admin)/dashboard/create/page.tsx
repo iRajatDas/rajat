@@ -50,6 +50,7 @@ const formSchema = z.object({
     .max(255, {
       message: "Slug is too long",
     }),
+
   // add type of article, blog/ snippet
   type: z.enum(["blog", "snippet"], {
     required_error: "Type is required",

@@ -25,8 +25,6 @@ import {
   InsertAdmonition,
   ListsToggle,
   BlockTypeSelect,
-  InsertFrontmatter,
-  frontmatterPlugin,
 } from "@mdxeditor/editor";
 import type { ForwardedRef } from "react";
 import { type MDXEditorMethods, type MDXEditorProps } from "@mdxeditor/editor";
@@ -51,13 +49,13 @@ export default function Editor({
         onProgressChange: (progress) => {
           // you can use this to show a progress bar
           console.log(progress);
-          
         },
       });
 
       if (res.url) {
         toast.success("Image uploaded");
         resolve(res.url);
+
         return res.url;
       } else {
         toast.error("Error uploading image");
@@ -65,6 +63,7 @@ export default function Editor({
       }
     });
   }
+
   return (
     <MDXEditor
       className="relative MDXEditorProse"
@@ -80,6 +79,7 @@ export default function Editor({
         }),
         tablePlugin(),
         thematicBreakPlugin(),
+
         // frontmatterPlugin(),
         codeBlockPlugin({ defaultCodeBlockLanguage: "tsx" }),
         codeMirrorPlugin({

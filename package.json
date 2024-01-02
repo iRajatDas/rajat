@@ -9,6 +9,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "prepare": "husky install",
     "introspect": "drizzle-kit introspect:pg",
     "db:generate": "drizzle-kit generate:pg --config=drizzle.config.ts"
   },
@@ -64,6 +65,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "^18.4.3",
     "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
     "@tailwindcss/typography": "^0.5.10",
     "@total-typescript/ts-reset": "^0.5.1",
@@ -82,6 +84,8 @@
     "drizzle-kit": "^0.19.13",
     "eslint": "8.48.0",
     "eslint-config-next": "14.0.1",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^8.0.3",
     "postcss": "^8.4.31",
     "postcss-nesting": "^12.0.1",
     "prettier": "^3.0.2",

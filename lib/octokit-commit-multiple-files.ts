@@ -25,7 +25,7 @@ module.exports = function (octokit, opts) {
       }
 
       // Destructuring for easier access later
-      let {
+      const {
         owner,
         repo,
         base,
@@ -94,6 +94,7 @@ module.exports = function (octokit, opts) {
         }
 
         const treeItems = [];
+
         // Handle file deletions
         if (hasFilesToDelete) {
           for (const batch of chunk(change.filesToDelete, batchSize)) {
@@ -227,7 +228,8 @@ async function fileExistsInRepo(octokit, owner, repo, path, branch) {
       path,
       ref: branch,
     });
-    return true;
+    
+return true;
   } catch (e) {
     return false;
   }
@@ -285,7 +287,8 @@ async function createBlob(octokit, owner, repo, contents, type) {
         encoding: "base64",
       })
     ).data;
-    return file.sha;
+    
+return file.sha;
   }
 }
 
@@ -296,7 +299,8 @@ async function loadRef(octokit, owner, repo, ref) {
       repo,
       ref: `heads/${ref}`,
     });
-    return x.data.object.sha;
+    
+return x.data.object.sha;
   } catch (e) {
     // console.log(e);
   }

@@ -63,7 +63,8 @@ export default function Blog({ params }: { params: { slug: string } }) {
   if (!post) {
     notFound();
   }
-  return (
+  
+return (
     <section>
       <script
         type="application/ld+json"

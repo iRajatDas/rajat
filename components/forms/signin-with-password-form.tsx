@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { useRouter } from "next/navigation";
+
 // import { checkIfEmailVerified } from "@/actions/email";
 // import { getUserByEmail } from "@/actions/user";
 import { signInWithPasswordSchema } from "@/lib/validations/auth";
@@ -47,6 +48,7 @@ export function SignInWithPasswordForm(): JSX.Element {
           toast.warning("First things first", {
             description: "Please make sure you are signed up before signing in",
           });
+
           return;
         }
 

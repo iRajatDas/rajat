@@ -4,7 +4,6 @@ import NavItem from "./nav-item";
 import React, { Suspense } from "react";
 import ThemeToggle from "@/components/theme-toggle";
 
-
 const navItems = {
   "/": {
     name: "home",
@@ -23,6 +22,7 @@ export default function Navbar() {
       <header className="-ml-2 mb-16 tracking-tight">
         <LayoutGroup>
           <nav
+            
             // ref={navRef}
             className="flex flex-row items-center justify-between relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
             id="nav"

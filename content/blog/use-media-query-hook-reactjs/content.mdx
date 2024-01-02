@@ -25,14 +25,69 @@ The `useMediaQuery` hook is a simple yet powerful tool that allows developers 
 
 Let's take a closer look at the implementation of the `useMediaQuery` hook:
 
-javascriptCopy code``import { useEffect, useState, useMemo } from "react"; type Breakpoint = "xs" | "sm" | "md" | "lg" | "xl" | "2xl"; type MediaQuery = Record<Breakpoint, string>; const mediaQueries: MediaQuery = { xs: "(min-width: 480px)", sm: "(min-width: 640px)", md: "(min-width: 768px)", lg: "(min-width: 1024px)", xl: "(min-width: 1280px)", "2xl": "(min-width: 1536px)", }; const useMediaQuery = (breakpoint: Breakpoint = "md"): boolean => { const mediaQuery = mediaQueries[breakpoint]; const mediaQueryList = useMemo(() => window.matchMedia(mediaQuery), [mediaQuery]); const [matches, setMatches] = useState(mediaQueryList.matches); useEffect(() => { const handleChange = (event: MediaQueryListEvent) => { setMatches(event.matches); }; mediaQueryList.addEventListener("change", handleChange); return () => { mediaQueryList.removeEventListener("change", handleChange); }; }, [mediaQueryList]); if (!mediaQueries[breakpoint]) { console.error(`Invalid breakpoint: ${breakpoint}`); return false; } return matches; }; export default useMediaQuery;``
+```tsx
+import { useEffect, useState, useMemo } from "react";
+
+type Breakpoint = "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+type MediaQuery = Record<Breakpoint, string>;
+
+const mediaQueries: MediaQuery = {
+  xs: "(min-width: 480px)",
+  sm: "(min-width: 640px)",
+  md: "(min-width: 768px)",
+  lg: "(min-width: 1024px)",
+  xl: "(min-width: 1280px)",
+  "2xl": "(min-width: 1536px)",
+};
+
+const useMediaQuery = (breakpoint: Breakpoint = "md"): boolean => {
+  const mediaQuery = mediaQueries[breakpoint];
+  const mediaQueryList = useMemo(() => window.matchMedia(mediaQuery), [mediaQuery]);
+  const [matches, setMatches] = useState(mediaQueryList.matches);
+
+  useEffect(() => {
+    const handleChange = (event: MediaQueryListEvent) => {
+      setMatches(event.matches);
+    };
+
+    mediaQueryList.addEventListener("change", handleChange);
+
+    return () => {
+      mediaQueryList.removeEventListener("change", handleChange);
+    };
+  }, [mediaQueryList]);
+
+  if (!mediaQueries[breakpoint]) {
+    console.error(`Invalid breakpoint: ${breakpoint}`);
+    return false;
+  }
+
+  return matches;
+};
+
+export default useMediaQuery;
+```
 
 ### How to Use
 
 To use the `useMediaQuery` hook in your React components, import it and incorporate it as follows:
 
-javascriptCopy code`import React from "react"; import useMediaQuery from "./useMediaQuery"; const MyComponent = () => { const isSmallScreen = useMediaQuery("sm"); return ( <div> {isSmallScreen ? <p>Small Screen Content</p> : <p>Large Screen Content</p>} </div> ); }; export default MyComponent;`
+``` tsx
+import React from "react";
+import useMediaQuery from "./useMediaQuery";
 
+const MyComponent = () => {
+  const isSmallScreen = useMediaQuery("sm");
+
+  return (
+    <div>
+      {isSmallScreen ? <p>Small Screen Content</p> : <p>Large Screen Content</p>}
+    </div>
+  );
+};
+
+export default MyComponent;
+```
 ## Key Features and Benefits
 
 ### 1. Simplifying Responsive Design

@@ -1,25 +1,24 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { allBlogs } from 'contentlayer/generated';
-import { Suspense } from 'react';
-import Views from '@/components/views';
+import type { Metadata } from "next";
+import Link from "next/link";
+import { allBlogs } from "contentlayer/generated";
+import { Suspense } from "react";
+import Views from "@/components/views";
 
 export const metadata: Metadata = {
-  title: 'Blog',
-  description: 'Read my thoughts on software development, design, and more.',
+  title: "Blog",
+  description: "Read my thoughts on software development, design, and more.",
 };
 
 export default function BlogPage() {
   return (
     <section>
-      <h1 className="font-semibold text-2xl mb-8 tracking-tighter">
-        Blog
-      </h1>
+      <h1 className="font-semibold text-2xl mb-8 tracking-tighter">Blog</h1>
       {allBlogs
         .sort((a, b) => {
           if (new Date(a.publishedAt) > new Date(b.publishedAt)) {
             return -1;
           }
+
           return 1;
         })
         .map((post) => (
@@ -41,4 +40,3 @@ export default function BlogPage() {
     </section>
   );
 }
-

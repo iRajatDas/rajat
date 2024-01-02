@@ -63,7 +63,8 @@ export default function Snippet({ params }: { params: { slug: string } }) {
   if (!snippet) {
     notFound();
   }
-  return (
+  
+return (
     <section>
       <script
         type="application/ld+json"

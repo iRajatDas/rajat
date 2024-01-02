@@ -1,4 +1,3 @@
-import { getViewCount } from "@/actions";
 import ViewCounter from "@/components/view-counter";
 import { getViewsCount } from "@/lib/metrics";
 

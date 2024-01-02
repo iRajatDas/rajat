@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useSelectedLayoutSegment } from "next/navigation";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -11,9 +11,10 @@ export default function NavItem({
   path: string;
   name: string;
 }) {
-  const pathname = usePathname();
-  const isActive = pathname === path;
-  return (
+  const segment = useSelectedLayoutSegment();
+  const isActive = `/${segment ?? ""}` === path;
+  
+return (
     <Link
       key={path}
       href={path}

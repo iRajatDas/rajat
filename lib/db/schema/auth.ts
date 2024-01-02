@@ -13,6 +13,7 @@ export const accounts = pgTable(
   "account",
   {
     userId: varchar("userId", { length: 255 }).notNull(),
+
     // .references(() => users.id, { onDelete: "cascade" }),
     type: varchar("type", { length: 255 })
       .$type<AdapterAccount["type"]>()
@@ -42,6 +43,7 @@ export const accountsRelations = relations(accounts, ({ one }) => ({
 export const sessions = pgTable("session", {
   sessionToken: varchar("sessionToken", { length: 255 }).notNull().primaryKey(),
   userId: varchar("userId", { length: 255 }).notNull(),
+
   // .references(() => users.id, { onDelete: "cascade" }),
   expires: timestamp("expires", { mode: "date" }).notNull(),
 });

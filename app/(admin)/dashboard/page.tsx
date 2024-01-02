@@ -1,4 +1,4 @@
-import { getFiles, getFilesWithTime } from "@/actions";
+import { getFilesWithTime } from "@/actions";
 import Views from "@/components/views";
 import { GitHubFileType } from "@/types/github-content";
 import Link from "next/link";
@@ -24,6 +24,7 @@ const Dashboard = async () => {
           if (new Date(a.commit.author.date) > new Date(b.commit.author.date)) {
             return -1;
           }
+
           return 1;
         })
         .map((post) => (

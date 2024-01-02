@@ -1,5 +1,5 @@
 import * as React from "react";
-import Link, { LinkProps } from "next/link";
+import Link from "next/link";
 import Image, { ImageProps } from "next/image";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { TweetComponent } from "./tweet";

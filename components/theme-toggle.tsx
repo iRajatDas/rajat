@@ -15,6 +15,7 @@ const ThemeToggle = () => {
       setTheme("dark");
     }
   };
+
   return (
     <ClientOnly>
       <button

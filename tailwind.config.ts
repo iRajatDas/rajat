@@ -9,6 +9,7 @@ export default {
     "./components/**/*.{ts,tsx}",
     "./content/**/*.mdx",
   ],
+
   // darkMode: `media`,
   darkMode: ["class"],
   theme: {
