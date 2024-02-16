@@ -97,7 +97,7 @@ export default function TimelinePage() {
                     <AccordionTrigger>
                       <div className="grid gap-1 no-underline">
                         <h3 className="font-semibold w-fit">{project.name}</h3>
-                        <p className="text-sm leading-none text transition-all hover:text-neutral-600 dark:hover:text-neutral-200 flex align-middle text-neutral-800 dark:text-neutral-400">
+                        <p className="text-sm leading-4 transition-all hover:text-neutral-600 dark:hover:text-neutral-200 text-left text-neutral-800 dark:text-neutral-400">
                           {project["short-description"]}
                         </p>
                       </div>
