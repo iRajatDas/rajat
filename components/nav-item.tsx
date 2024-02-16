@@ -3,27 +3,30 @@ import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import React from "react";
 
-export default function NavItem({
-  path,
-  name,
-}: {
+// type props
+type NavItemProps = React.HTMLProps<HTMLAnchorElement> & {
   path: string;
   name: string;
-}) {
+  textClassName?: string;
+};
+
+export default function NavItem({ path, name, ...props }: NavItemProps) {
   const segment = useSelectedLayoutSegment();
   const isActive = `/${segment ?? ""}` === path;
-  
-return (
+
+  return (
     <Link
       key={path}
       href={path}
       className={cn(
         "transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle",
-        !isActive && "text-neutral-500"
+        !isActive && "text-neutral-500",
+        props.className
       )}
     >
-      <span className="relative py-1 px-2">
+      <span className={cn("relative py-1 px-2", props.textClassName)}>
         {name}
         {isActive ? (
           <motion.div

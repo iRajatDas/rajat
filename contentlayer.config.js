@@ -45,7 +45,7 @@ return tweetMatches?.map((tweet) => tweet.match(/[0-9]+/g)[0]) || [];
       url: `${env.NEXTAUTH_URL}/blog/${doc._raw.flattenedPath}`,
       author: {
         "@type": "Person",
-        name: "Rajat Das",
+        name: "Rajot Das",
       },
     }),
   },
@@ -90,7 +90,7 @@ return tweetMatches?.map((tweet) => tweet.match(/[0-9]+/g)[0]) || [];
       url: `${env.NEXTAUTH_URL}/snippets/${doc._raw.flattenedPath}`,
       author: {
         "@type": "Person",
-        name: "Rajat Das",
+        name: "Rajot Das",
       },
     }),
   },

@@ -9,17 +9,17 @@ import Provider from "@/lib/provider";
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXTAUTH_URL),
   title: {
-    default: "Rajat Das",
-    template: "%s | Rajat Das",
+    default: "Rajot Das",
+    template: "%s | Rajot Das",
   },
   description:
-    "Expertise in React and Next.js. Rajat Das: Your dedicated Frontend UI/UX developer, ensuring intuitive interfaces and exceptional user satisfaction.",
+    "Expertise in React and Next.js. Rajot Das: Your dedicated Frontend UI/UX developer, ensuring intuitive interfaces and exceptional user satisfaction.",
   openGraph: {
-    title: "Rajat Das Portfolio",
+    title: "Rajot Das Portfolio",
     description:
-      "Expertise in React and Next.js. Rajat Das: Your dedicated Frontend UI/UX developer, ensuring intuitive interfaces and exceptional user satisfaction.",
+      "Expertise in React and Next.js. Rajot Das: Your dedicated Frontend UI/UX developer, ensuring intuitive interfaces and exceptional user satisfaction.",
     url: env.NEXTAUTH_URL,
-    siteName: "Rajat Das",
+    siteName: "Rajot Das",
     locale: "en_US",
     type: "website",
   },
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Rajat Das",
+    title: "Rajot Das",
     card: "summary_large_image",
   },
 };

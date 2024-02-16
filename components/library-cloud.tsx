@@ -22,6 +22,7 @@ const logos = [
   { component: Logo.Twillio, label: "Twillio" },
   { component: Logo.Cloudflare, label: "Cloudflare" },
   { component: Logo.RadixUI, label: "RadixUI" },
+  { component: Logo.ReactQuery, label: "TanStack Query" },
 ];
 
 const LibraryCloud = () => {

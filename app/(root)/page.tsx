@@ -7,6 +7,7 @@ import BlogLink from "@/components/blog-link";
 import ArrowIcon from "@/components/arrow-icon";
 import LibraryCloud from "@/components/library-cloud";
 import Welcome from "@/components/welcome";
+import { Card } from "@/components/card";
 
 export default function Page() {
   return (
@@ -47,6 +48,12 @@ export default function Page() {
       </p>
       <div className="prose prose-neutral dark:prose-invert">
         <p>
+          I have experience working with modern web technologies such as{" "}
+          <strong>React</strong>, <strong>Next.js</strong>, and{" "}
+          <strong>Tailwind CSS</strong>. I love learning new things and
+          experimenting with the latest tools to improve my workflow.
+        </p>
+        <p>
           My expertise lies in developing responsive web applications and
           optimizing them for better user experience. I am dedicated to
           delivering client-centric solutions tailored to meet specific project
@@ -60,10 +67,13 @@ export default function Page() {
             slug="asynchronous-operations-promises-async-await-callbacks-javascript"
           />
           <BlogLink
-            name="2023 State of Databases for Serverless & Edge"
-            slug="backend"
+            name="Responsive React Application with the useMediaQuery Hook"
+            slug="use-media-query-hook-reactjs"
           />
-          <BlogLink name="The Story of Heroku" slug="heroku" />
+          <BlogLink
+            name="Hexadecimal to RGB Conversion"
+            slug="hex-to-rgb-converter-javascript"
+          />
         </Suspense>
       </div>
       <div className="prose prose-neutral dark:prose-invert">
@@ -87,11 +97,86 @@ export default function Page() {
         </p>
         <p>
           Please feel free to{" "}
-          <Link className="underline" href="mailto:rajatdas5000@gmail.com">
+          <Link className="underline" href="mailto:rajotdas5000@gmail.com">
             Drop me an e-mail
           </Link>
           .
         </p>
+      </div>
+      <div className="space-y-4 mt-8">
+        <h3
+          className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 scroll-m-20"
+          id="projects"
+        >
+          <span className="text-neutral-800 dark:text-neutral-100">
+            Projects
+          </span>
+        </h3>
+        <p className="text-muted-foreground">
+          Here are a few projects I&apos;ve been working on.
+        </p>
+
+        <div className="grid grid-cols-1 gap-4 mx-auto lg:grid-cols-2">
+          <div className="col-span-full">
+            <Card>
+              <Link href="https://instathreadsdown.com/" target="_blank">
+                <article className="relative w-full h-full p-4">
+                  <h2
+                    id="featured-post"
+                    className="mt-2 text-2xl font-bold dark:text-zinc-100 dark:group-hover:text-white text-zinc-700 group-hover:text-zinc-600"
+                  >
+                    Insta Threads Down
+                  </h2>
+                  <p className="mt-2 leading-8 duration-150 text-zinc-500 group-hover:text-zinc-400 dark:text-zinc-400 dark:group-hover:text-zinc-300 text-balance">
+                    Insta Threads Down is a simple web app that allows you to
+                    download <strong>Instagram Threads</strong> in a single
+                    click. It&apos;s built with <strong>Next.js</strong> and{" "}
+                    <strong>Cloudflare Workers</strong>.
+                  </p>
+                </article>
+              </Link>
+            </Card>
+          </div>
+
+          <Card>
+            <Link href="https://youtu.be/VnwmsxH2jqU?t=321">
+              <article className="relative w-full h-full p-4">
+                <h2
+                  id="featured-post"
+                  className="mt-2 text-2xl font-bold dark:text-zinc-100 dark:group-hover:text-white text-zinc-700 group-hover:text-zinc-600"
+                >
+                  Samsung AI PhoneCase
+                </h2>
+                <p className="mt-2 leading-8 duration-150 text-zinc-500 group-hover:text-zinc-400 dark:text-zinc-400 dark:group-hover:text-zinc-300 text-balance">
+                  Samsung AI PhoneCase is a project that I worked on during my
+                  time at Macmerise. It takes a prompt and generates a unique AI
+                  art and prints it on a phone case. <br />
+                  <strong className="text-xs font-normal text-black dark:text-white">
+                    (Only used in Samsung Exclusive Stores in India.)
+                  </strong>
+                </p>
+              </article>
+            </Link>
+          </Card>
+          <Card>
+            <Link href="">
+              <article className="relative w-full h-full p-4">
+                <h2
+                  id="featured-post"
+                  className="mt-2 text-2xl font-bold dark:text-zinc-100 dark:group-hover:text-white text-zinc-700 group-hover:text-zinc-600"
+                >
+                  1OF1 AI-Commerice
+                </h2>
+                <p className="mt-2 leading-8 duration-150 text-zinc-500 group-hover:text-zinc-400 dark:text-zinc-400 dark:group-hover:text-zinc-300 text-balance">
+                  1OF1 AI-Commerice is a project that I worked on during my time
+                  at Macmerise. It takes kewords and generates a unique AI art
+                  then user can get choose from various products (
+                  <i>ie: t-shirts, sweatshirt</i>) to print it on.
+                </p>
+              </article>
+            </Link>
+          </Card>
+        </div>
       </div>
       <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-600 dark:text-neutral-300">
         <li>
@@ -99,7 +184,7 @@ export default function Page() {
             className="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://twitter.com/RajatDas_"
+            href="https://twitter.com/RajotDas_"
           >
             <ArrowIcon />
             <p className="h-7 ml-2">follow me</p>
@@ -110,7 +195,7 @@ export default function Page() {
             className="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://github.com/iRajatDas"
+            href="https://github.com/iRajotDas"
           >
             <ArrowIcon />
             <p className="h-7 ml-2">github</p>

@@ -10,11 +10,11 @@ import { Toaster } from "sonner";
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXTAUTH_URL),
   title: {
-    default: "Rajat Das",
-    template: "%s | Rajat Das",
+    default: "Rajot Das",
+    template: "%s | Rajot Das",
   },
   description:
-    "Expertise in React and Next.js. Rajat Das: Your dedicated Frontend UI/UX developer, ensuring intuitive interfaces and exceptional user satisfaction.",
+    "Expertise in React and Next.js. Rajot Das: Your dedicated Frontend UI/UX developer, ensuring intuitive interfaces and exceptional user satisfaction.",
 
   robots: {
     index: false,
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Rajat Das",
+    title: "Rajot Das",
     card: "summary_large_image",
   },
 };

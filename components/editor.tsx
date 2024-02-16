@@ -28,7 +28,8 @@ import {
 } from "@mdxeditor/editor";
 import type { ForwardedRef } from "react";
 import { type MDXEditorMethods, type MDXEditorProps } from "@mdxeditor/editor";
-import { useEdgeStore } from "@/lib/provider/edge-storage-provider";
+
+// import { useEdgeStore } from "@/lib/provider/edge-storage-provider";
 import { toast } from "sonner";
 
 const MDXEditor = dynamic(
@@ -40,12 +41,15 @@ export default function Editor({
   editorRef,
   ...props
 }: { editorRef: ForwardedRef<MDXEditorMethods> | null } & MDXEditorProps) {
-  const { edgestore } = useEdgeStore();
+  // const { edgestore } = useEdgeStore();
 
   function imageUploadHandler(image: File): Promise<string> {
     return new Promise(async (resolve, reject) => {
+      //@ts-expect-error
       const res = await edgestore.publicFiles.upload({
         file: image,
+
+        // @ts-expect-error
         onProgressChange: (progress) => {
           // you can use this to show a progress bar
           console.log(progress);

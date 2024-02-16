@@ -12,13 +12,16 @@ const handVariants = {
   },
 };
 
-const Welcome = ({ name = "Rajat" }: { name?: string }) => {
+const Welcome = ({ name = "Rajot" }: { name?: string }) => {
   return (
     <h1
       className="font-semibold text-2xl mb-8 tracking-tighter w-fit"
       title="Rajot Kumar Das"
     >
-      hey, I&apos;m {name}{" "}
+      hey, I&apos;m{" "}
+      <span className="underline underline-offset-4 decoration-muted-foreground">
+        {name}
+      </span>{" "}
       <motion.span
         role="img"
         aria-label="waving hand"

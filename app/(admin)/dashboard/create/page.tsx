@@ -86,8 +86,8 @@ summary: "${data.summary}"
     try {
       const publishPost = async () => {
         await createArticleWithMetadata(
-          "iRajatDas",
-          "rajat",
+          "iRajotDas",
+          "rajot",
           "main",
           content,
           data.slug,
