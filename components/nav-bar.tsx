@@ -17,6 +17,9 @@ const navItems = {
   "/#projects": {
     name: "experience",
   },
+  "/timeline": {
+    name: "timeline",
+  },
 };
 
 export default function Navbar() {
@@ -25,12 +28,12 @@ export default function Navbar() {
       <header className="-ml-2 mb-16 tracking-tight">
         <LayoutGroup>
           <nav
-          
+            
             // ref={navRef}
             className="flex flex-row items-center justify-between relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
             id="nav"
           >
-            <div className="flex flex-row space-x-0 pr-10">
+            <div className="flex flex-row space-x-0 pr-10 overflow-x-scroll snap-x snap-mandatory scrollbar-none">
               <Suspense fallback={null}>
                 {Object.entries(navItems).map(([path, { name }]) => {
                   if (path === "/#projects") {
@@ -44,11 +47,22 @@ export default function Navbar() {
                     );
                   }
 
+                  if (path === "/timeline") {
+                    return (
+                      <NavItem
+                        key={path}
+                        path={path}
+                        name={name}
+                        textClassName="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent tracking-wide	"
+                      />
+                    );
+                  }
+
                   return <NavItem key={path} path={path} name={name} />;
                 })}
               </Suspense>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="items-center gap-2 hidden sm:flex">
               <ThemeToggle />
             </div>
           </nav>

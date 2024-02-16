@@ -21,8 +21,8 @@ export default function NavItem({ path, name, ...props }: NavItemProps) {
       key={path}
       href={path}
       className={cn(
-        "transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle",
-        !isActive && "text-neutral-500",
+        "transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle snap-center",
+        !isActive && "text-neutral-700 dark:text-neutral-500",
         props.className
       )}
     >

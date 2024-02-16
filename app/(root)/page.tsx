@@ -103,7 +103,7 @@ export default function Page() {
           .
         </p>
       </div>
-      <div className="space-y-4 mt-8">
+      <div className="space-y-4 mt-8 pt-8 border-t border-neutral-200 dark:border-neutral-800">
         <h3
           className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 scroll-m-20"
           id="projects"
@@ -112,8 +112,9 @@ export default function Page() {
             Projects
           </span>
         </h3>
-        <p className="text-muted-foreground">
-          Here are a few projects I&apos;ve been working on.
+        <p className="transition-all hover:text-neutral-600 dark:hover:text-neutral-200 flex align-middle text-neutral-800 dark:text-neutral-400">
+          Here are a few projects I&apos;ve been working on recently. Some of
+          them are personal projects and some are from my professional journey.
         </p>
 
         <div className="grid grid-cols-1 gap-4 mx-auto lg:grid-cols-2">

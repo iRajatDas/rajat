@@ -5,6 +5,7 @@ import env from "@/lib/env";
 import Navbar from "@/components/nav-bar";
 import { cn } from "@/lib/utils";
 import Provider from "@/lib/provider";
+import ThemeToggle from "@/components/theme-toggle";
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXTAUTH_URL),
@@ -58,6 +59,10 @@ export default function RootLayout({
             <Navbar />
             {children}
           </main>
+
+          <div className="fixed bottom-4 right-4 sm:hidden">
+            <ThemeToggle className="bg-slate-100 dark:bg-neutral-800" />
+          </div>
         </Provider>
       </body>
     </html>
