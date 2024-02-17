@@ -71,7 +71,7 @@ export default function TimelinePage() {
       <div className="space-y-6 lg:space-y-8">
         {timelineData.map((timeline) => (
           <div
-            className="rounded-lg overflow-hidden border shadow-sm dark:border-neutral-700 bg-neutral-900/70"
+            className="rounded-lg overflow-hidden border shadow-sm dark:border-neutral-700 dark:bg-neutral-900/70"
             key={timeline.company}
           >
             <div className="flex items-start p-4 gap-4">
