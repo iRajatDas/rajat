@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /$
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Disallow: /_next/
+Disallow: /api/
+Sitemap: https://rajatdas.vercel.app/sitemap.xml
