@@ -3,6 +3,8 @@ import { LayoutGroup } from "framer-motion";
 import NavItem from "./nav-item";
 import React, { Suspense } from "react";
 import ThemeToggle from "@/components/theme-toggle";
+import { GithubIcon } from "lucide-react";
+import Link from "next/link";
 
 const navItems = {
   "/": {
@@ -63,6 +65,15 @@ export default function Navbar() {
               </Suspense>
             </div>
             <div className="items-center gap-2 hidden sm:flex">
+              <Link
+                href="https://github.com/iRajatDas"
+                title="GitHub Profile"
+                className={
+                  "h-10 w-10 rounded-full border text-neutral-700 dark:text-neutral-200 border-neutral-200 dark:border-neutral-700 grid place-items-center"
+                }
+              >
+                <GithubIcon className="size-5" />
+              </Link>
               <ThemeToggle />
             </div>
           </nav>
