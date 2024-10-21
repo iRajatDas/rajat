@@ -6,6 +6,7 @@ import Navbar from "@/components/nav-bar";
 import { cn } from "@/lib/utils";
 import Provider from "@/lib/provider";
 import ThemeToggle from "@/components/theme-toggle";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXTAUTH_URL),
@@ -51,6 +52,26 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn(fontSans.variable, fontMono.variable, "")}
     >
+      <head>
+        {/* Google Analytics */}
+
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${env.GOOGLE_ANALYTICS_ID}`}
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "${env.GOOGLE_ANALYTICS_ID}");
+          `}
+        </Script>
+      </head>
+
       {/* <body className={"min-h-screen bg-background font-sans antialiased"}> */}
       <body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8w sm:mx-auto scroll-smooth">
         <Provider>

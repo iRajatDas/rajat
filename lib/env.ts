@@ -12,6 +12,7 @@ const envSchema = zod.object({
   NEXTAUTH_URL: zod.string(),
   GHP_PAT: zod.string(),
   RESEND_EMAIL_FROM: zod.string(),
+  GOOGLE_ANALYTICS_ID: zod.string(),
   
   // EDGE_STORE_ACCESS_KEY: zod.string(),
   // EDGE_STORE_SECRET_KEY: zod.string(),
