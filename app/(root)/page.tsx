@@ -97,7 +97,7 @@ export default function Page() {
         </p>
         <p>
           Please feel free to{" "}
-          <Link className="underline" href="mailto:rajotdas5000@gmail.com">
+          <Link className="underline" href="mailto:rajatdas5000@gmail.com">
             Drop me an e-mail
           </Link>
           .

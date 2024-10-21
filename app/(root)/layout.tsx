@@ -10,15 +10,14 @@ import ThemeToggle from "@/components/theme-toggle";
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXTAUTH_URL),
   title: {
-    default: "Rajot Das",
-    template: "%s | Rajot Das",
+    default: "Rajot Das - Frontend Engineer | React | Next.js",
+    template: "%s | Rajot Das - Frontend Engineer",
   },
   description:
     "Expertise in React and Next.js. Rajot Das: Your dedicated Frontend UI/UX developer, ensuring intuitive interfaces and exceptional user satisfaction.",
   openGraph: {
-    title: "Rajot Das Portfolio",
-    description:
-      "Expertise in React and Next.js. Rajot Das: Your dedicated Frontend UI/UX developer, ensuring intuitive interfaces and exceptional user satisfaction.",
+    title: "Rajot Das - Frontend Engineer | React | Next.js",
+    description: `Expertise in React and Next.js. Rajot Das: Your dedicated Frontend UI/UX developer, ensuring intuitive interfaces and exceptional user satisfaction.`,
     url: env.NEXTAUTH_URL,
     siteName: "Rajot Das",
     locale: "en_US",
@@ -36,7 +35,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Rajot Das",
+    title: "Rajot Das - Frontend Engineer | React | Next.js",
     card: "summary_large_image",
   },
 };
