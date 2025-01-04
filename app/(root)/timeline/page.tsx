@@ -62,34 +62,35 @@ const timelineData = [
       },
     ],
   },
-  {
-    company: "Clorse",
-    logo: Logo.Clorse,
-    type: "Freelance",
-    description:
-      "Clorse is an innovative, AI-driven platform in the Ad-Tech space, revolutionizing the way brands and influencers leverage their social media presence. This dynamic tool unlocks new opportunities for maximizing the impact and value of their digital influence, making it an exciting frontier for all players in the social landscape.",
-    start: new Date("2024-07-6"),
-    end: new Date("2024-09-28"),
-    role: "Software Engineer",
-    responsibility: "Frontend Development",
-    projects: [
-      {
-        name: "Clorse",
-        "short-description":
-          "Ad-Tech Platform Redesign and Feature Integration",
-        description: `Led the frontend development and backend integration for Clorse's platform redesign. Implemented new features including premium-only campaigns API integration and workflow enhancements. The project focused on improving user experience and expanding platform capabilities.`,
-        start: new Date("2024-07-18"),
-        end: new Date("2024-07-25"),
-      },
-      {
-        name: "Insta AI",
-        "short-description": "AI-powered image processing tool for Instagram",
-        description: `Developed the AI-powered image processing tool for Instagram influencers. The tool uses AI to generate unique designs for Instagram posts and stories. The project focused on improving user engagement and content quality.`,
-        start: new Date("2024-07-18"),
-        end: new Date("2024-07-25"),
-      },
-    ],
-  },
+  
+  // {
+  //   company: "Clorse",
+  //   logo: Logo.Clorse,
+  //   type: "Freelance",
+  //   description:
+  //     "Clorse is an innovative, AI-driven platform in the Ad-Tech space, revolutionizing the way brands and influencers leverage their social media presence. This dynamic tool unlocks new opportunities for maximizing the impact and value of their digital influence, making it an exciting frontier for all players in the social landscape.",
+  //   start: new Date("2024-07-6"),
+  //   end: new Date("2024-09-28"),
+  //   role: "Software Engineer",
+  //   responsibility: "Frontend Development",
+  //   projects: [
+  //     {
+  //       name: "Clorse",
+  //       "short-description":
+  //         "Ad-Tech Platform Redesign and Feature Integration",
+  //       description: `Led the frontend development and backend integration for Clorse's platform redesign. Implemented new features including premium-only campaigns API integration and workflow enhancements. The project focused on improving user experience and expanding platform capabilities.`,
+  //       start: new Date("2024-07-18"),
+  //       end: new Date("2024-07-25"),
+  //     },
+  //     {
+  //       name: "Insta AI",
+  //       "short-description": "AI-powered image processing tool for Instagram",
+  //       description: `Developed the AI-powered image processing tool for Instagram influencers. The tool uses AI to generate unique designs for Instagram posts and stories. The project focused on improving user engagement and content quality.`,
+  //       start: new Date("2024-07-18"),
+  //       end: new Date("2024-07-25"),
+  //     },
+  //   ],
+  // },
 ];
 
 export default function TimelinePage() {
